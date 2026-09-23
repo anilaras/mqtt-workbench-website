@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#092a36">
+    <meta name="description" content="MQTT Workbench ile MQTT trafiğini izleyin, mesaj yayınlayın, kayıtları yeniden oynatın ve IoT testlerinizi tek masaüstü uygulamasında yönetin. Windows ve Linux için.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:title" content="MQTT Workbench — MQTT için çalışma alanınız">
+    <meta property="og:description" content="Bağlanın, trafiği anlayın, senaryolarınızı test edin. Windows ve Linux için MQTT geliştirici araçları.">
+    <meta property="og:image" content="https://anilaras.github.io/mqtt-workbench-website/assets/logo.png">
+    <meta property="og:url" content="https://anilaras.github.io/mqtt-workbench-website/">
+    <link rel="canonical" href="https://anilaras.github.io/mqtt-workbench-website/">
+    <title>MQTT Workbench — MQTT için çalışma alanınız</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="site-config.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">İçeriğe geç</a>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="connect" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M9 6h6a3 3 0 0 1 3 3v6M6 9v6a3 3 0 0 0 3 3h6"/></symbol>
+        <symbol id="search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7 10h7"/></symbol>
+        <symbol id="publish" viewBox="0 0 24 24"><path d="m3 10 18-7-7 18-3-8-8-3Zm8 3L21 3"/></symbol>
+        <symbol id="replay" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 1 7M3 4v6h6"/><path d="m10 8 6 4-6 4Z"/></symbol>
+        <symbol id="automation" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M8 3v6M16 9v6M10 15v6"/></symbol>
+        <symbol id="devices" viewBox="0 0 24 24"><rect x="8" y="8" width="8" height="8" rx="2"/><path d="M9 3v5M15 3v5M9 16v5M15 16v5M3 9h5M3 15h5M16 9h5M16 15h5"/></symbol>
+    </svg>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#top" class="brand" aria-label="MQTT Workbench ana sayfa"><img src="assets/logo.png" alt="MQTT Workbench" width="210" height="65" fetchpriority="high"></a>
+            <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" hidden><span>Menü</span><span class="menu-lines" aria-hidden="true"></span></button>
+            <nav id="main-nav" class="main-nav" aria-label="Ana menü">
+                <a href="#ozellikler">Özellikler</a><a href="#arayuz">Arayüz</a><a href="#sorular">Sık sorulanlar</a>
+                <a class="nav-cta" href="#indir">Uygulamayı edinin <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+            </nav>
+        </div>
+    </header>
+    <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="accent-line"></span> MQTT İÇİN ÇALIŞMA ALANINIZ</p>
+                    <h1 id="hero-title">Trafiği görün.<br>Mesajı anlayın.<br><span>Kontrolü alın.</span></h1>
+                    <p class="hero-description">Broker bağlantısından cihaz simülasyonuna: MQTT geliştirme, hata ayıklama ve test araçlarınız tek bir masaüstü uygulamasında.</p>
+                    <div class="button-row">
+                        <a class="button button-primary" href="#arayuz">Workbench’i keşfedin <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+                        <a class="button button-ghost" href="#indir">İndirme seçenekleri</a>
+                    </div>
+                    <div class="hero-platforms"><span>Windows &amp; Linux</span><span class="small-divider"></span><span>MQTT 3.1.1 &amp; 5.0</span></div>
+                </div>
+                <div class="traffic-visual" aria-label="Örnek MQTT mesaj akışı">
+                    <div class="visual-topline"><span class="mono">MESSAGE FLOW</span><span class="demo-label">ÖRNEK VERİ</span></div>
+                    <div class="flow-path" aria-hidden="true">
+                        <span class="flow-node"><svg class="icon"><use href="#devices"/></svg></span><span class="flow-wire"></span>
+                        <span class="flow-broker">MQTT<br><small>BROKER</small></span><span class="flow-wire"></span>
+                        <span class="flow-node destination"><svg class="icon"><use href="#search"/></svg></span>
+                    </div>
+                    <div class="payload-card">
+                        <div class="payload-heading"><span class="message-dot"></span><span class="mono">factory/sensor-01/telemetry</span><span class="qos">QoS 1</span></div>
+                        <pre aria-label="Örnek JSON mesajı"><code><span class="code-brace">{</span>
+  <span class="code-key">"device"</span>: <span class="code-value">"sensor-01"</span>,
+  <span class="code-key">"temperature"</span>: <span class="code-number">24.6</span>,
+  <span class="code-key">"humidity"</span>: <span class="code-number">48</span>,
+  <span class="code-key">"status"</span>: <span class="code-value">"online"</span>
+<span class="code-brace">}</span></code></pre>
+                        <div class="payload-footer"><span>JSON PAYLOAD</span><span>PUBLISH / SUBSCRIBE</span></div>
+                    </div>
+                    <div class="visual-bottomline"><span class="signal-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Her mesajın arkasındaki sistemi görün.</span></div>
+                </div>
+            </div>
+            <div class="container capability-strip" aria-label="Protokol ve bağlantı desteği">
+                <span>GELİŞTİRİCİLER İÇİN TASARLANDI</span><span>MQTT 3.1.1 / 5.0</span><span>TCP / TLS / WebSocket</span><span>QoS 0 / 1 / 2</span><span>Windows / Linux</span>
+            </div>
+        </section>
+        <section class="section container" id="ozellikler" aria-labelledby="features-title">
+            <div class="section-heading">
+                <div><p class="eyebrow">DAHA AZ ARAÇ DEĞİŞTİRİN</p><h2 id="features-title">Bağlantıdan teste,<br>aynı çalışma alanında.</h2></div>
+                <p>IoT geliştirirken ihtiyaç duyduğunuz görünürlük ve kontrol. Canlı trafiği inceleyin, mesajları düzenleyin ve test senaryolarınızı tekrar çalıştırın.</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#connect"/></svg></span><span class="feature-number">01</span><h3>Bağlantılar bir arada</h3><p>Birden fazla broker’a bağımsız sekmelerden bağlanın. Profilleri kaydedin, TLS ve WebSocket seçenekleriyle ortamınıza uyum sağlayın.</p><span class="feature-tag">Çoklu bağlantı</span></article>
+                <article class="feature-card"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#search"/></svg></span><span class="feature-number">02</span><h3>Gürültüyü filtreleyin</h3><p>Gelen trafikten keşfedilen topic’lere tıklayarak odaklanın. Mesajları metin, JSON, hex veya Base64 olarak inceleyin.</p><span class="feature-tag">Canlı monitor</span></article>
+                <article class="feature-card"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#publish"/></svg></span><span class="feature-number">03</span><h3>Mesajı alın, düzenleyin, gönderin</h3><p>Mesajları publish editörüne aktarın. Metin veya dosya içeriğini QoS, retain ve MQTT 5 özellikleriyle yayınlayın.</p><span class="feature-tag">Publish editörü</span></article>
+                <article class="feature-card"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#replay"/></svg></span><span class="feature-number">04</span><h3>Aynı senaryoya geri dönün</h3><p>Trafiği NDJSON olarak kaydedin. Hızı, hedef topic’i ve mesaj dönüşümlerini ayarlayarak seçtiğiniz broker’da yeniden oynatın.</p><span class="feature-tag">Capture &amp; replay</span></article>
+                <article class="feature-card"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#automation"/></svg></span><span class="feature-number">05</span><h3>Tekrar eden işleri otomatikleştirin</h3><p>Değişkenler ve şablonlarla mesaj üretin. Tekrarlı yayın, toplu gönderim ve request/response akışları oluşturun.</p><span class="feature-tag">Otomasyon</span></article>
+                <article class="feature-card"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#devices"/></svg></span><span class="feature-number">06</span><h3>Donanımı beklemeden test edin</h3><p>Sanal cihazlarla MQTT mesajları üretin. Bağlantı ve topic istatistiklerini inceleyerek test akışınızı takip edin.</p><span class="feature-tag">Simülatör &amp; diagnostics</span></article>
+            </div>
+        </section>
+        <section class="showcase section" id="arayuz" aria-labelledby="showcase-title">
+            <div class="container">
+                <div class="section-heading">
+                    <div><p class="eyebrow">UYGULAMAYA YAKINDAN BAKIN</p><h2 id="showcase-title">Detaylar elinizin altında.</h2></div>
+                    <p>Bağlantınız görünür kalırken araçlar arasında geçin. Aşağıdaki görseller doğrudan masaüstü uygulamasından alınmıştır.</p>
+                </div>
+                <div class="showcase-layout">
+                    <div class="showcase-tabs" aria-label="Uygulama ekranları">
+                        <a class="showcase-tab is-active" href="#screen-monitor" data-screen="monitor"><span class="tab-index">01</span><span><strong>Monitor</strong><small>Topic’e odaklanın, mesajı inceleyin.</small></span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+                        <a class="showcase-tab" href="#screen-publish" data-screen="publish"><span class="tab-index">02</span><span><strong>Publish</strong><small>İçeriği düzenleyin ve yayınlayın.</small></span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+                        <a class="showcase-tab" href="#screen-capture" data-screen="capture"><span class="tab-index">03</span><span><strong>Capture / Replay</strong><small>Trafiği kaydedin, yeniden oynatın.</small></span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+                        <a class="showcase-tab" href="#screen-simulator" data-screen="simulator"><span class="tab-index">04</span><span><strong>Simulator</strong><small>Sanal cihazlarla senaryolar kurun.</small></span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+                        <p class="showcase-note">Açık ve koyu tema desteği.<br>Burada koyu tema gösteriliyor.</p>
+                    </div>
+                    <div class="screens">
+                        <figure class="screen-panel" id="screen-monitor"><div class="window-bar"><span>MQTT Workbench</span><span>MONITOR</span></div><a href="assets/monitor.png" target="_blank" rel="noopener" aria-label="Monitor ekranını tam boyutta aç"><img src="assets/monitor.png" alt="Monitor: broker profilleri, topic filtresi, abonelik alanı ve mesaj inceleyici." width="1024" height="700" loading="lazy"></a><figcaption><span>01 / 04</span> Trafiği topic ve içerik üzerinden filtreleyin.<span class="expand-hint">Görseli büyütmek için tıklayın</span></figcaption></figure>
+                        <figure class="screen-panel" id="screen-publish"><div class="window-bar"><span>MQTT Workbench</span><span>PUBLISH</span></div><a href="assets/publish.png" target="_blank" rel="noopener" aria-label="Publish ekranını tam boyutta aç"><img src="assets/publish.png" alt="Publish: topic, payload editörü, QoS, retain ve dosyadan içerik yükleme seçenekleri." width="1024" height="700" loading="lazy"></a><figcaption><span>02 / 04</span> Mesajlarınızı tek editörden hazırlayın.<span class="expand-hint">Görseli büyütmek için tıklayın</span></figcaption></figure>
+                        <figure class="screen-panel" id="screen-capture"><div class="window-bar"><span>MQTT Workbench</span><span>CAPTURE / REPLAY</span></div><a href="assets/capture.png" target="_blank" rel="noopener" aria-label="Capture ve Replay ekranını tam boyutta aç"><img src="assets/capture.png" alt="Capture ve Replay: trafik kayıt dosyası, yeniden oynatma ve dönüşüm ayarları." width="1024" height="700" loading="lazy"></a><figcaption><span>03 / 04</span> Gerçek trafiği tekrar kullanılabilir bir teste dönüştürün.<span class="expand-hint">Görseli büyütmek için tıklayın</span></figcaption></figure>
+                        <figure class="screen-panel" id="screen-simulator"><div class="window-bar"><span>MQTT Workbench</span><span>SIMULATOR</span></div><a href="assets/simulator.png" target="_blank" rel="noopener" aria-label="Simulator ekranını tam boyutta aç"><img src="assets/simulator.png" alt="Simulator: sanal cihaz filosu, yayın aralığı ve mesaj şablonu ayarları." width="1024" height="700" loading="lazy"></a><figcaption><span>04 / 04</span> Test ortamınızı sanal cihazlarla genişletin.<span class="expand-hint">Görseli büyütmek için tıklayın</span></figcaption></figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section container workflow" aria-labelledby="workflow-title">
+            <div class="workflow-intro"><p class="eyebrow">FİKİRDEN DOĞRULAMAYA</p><h2 id="workflow-title">Akışınızı<br>kesmeden ilerleyin.</h2><p>Profiller, çalışma alanları ve kayıtlı mesajlarla kaldığınız yere daha kolay dönün.</p><a class="text-link" href="#indir">Masaüstünüzde yer açın <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+            <ol class="workflow-steps">
+                <li><span class="step-number">01</span><div><h3>Bağlanın</h3><p>Broker profilinizi oluşturun, bağlantıyı açın ve ihtiyacınız olan topic’lere abone olun.</p></div></li>
+                <li><span class="step-number">02</span><div><h3>Anlayın</h3><p>Mesaj içeriğini ve MQTT özelliklerini inceleyin. Filtrelerle aradığınız trafiğe odaklanın.</p></div></li>
+                <li><span class="step-number">03</span><div><h3>Doğrulayın</h3><p>Mesajı değiştirip yayınlayın; kayıt, replay ve otomasyonla senaryonuzu tekrar test edin.</p></div></li>
+            </ol>
+        </section>
+        <section class="download-section" id="indir" aria-labelledby="download-title">
+            <div class="container download-inner">
+                <div class="download-copy"><p class="eyebrow">MASAÜSTÜNÜZ İÇİN</p><h2 id="download-title">Bir çalışma alanı.<br>İki platform.</h2><p>Windows ve Linux üzerinde aynı MQTT araçlarıyla çalışın.</p><p class="release-note" id="release-note">İndirme bağlantıları yayınlandığında burada yer alacak.</p></div>
+                <div class="download-cards">
+                    <article class="download-card"><div class="platform-heading"><svg class="platform-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M3 5l11-1.5v11H3zm13-1.8L29 1v13.5H16zM3 17h11v11L3 26.5zm13 0h13v14l-13-2z"/></svg><h3>Windows</h3><span>x64</span></div><p>Windows 10 ve Windows 11</p><a class="button button-primary download-link" data-download="windows" hidden>Windows için indir <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><p class="download-pending" data-pending="windows">İndirme bağlantısı yakında</p><a class="store-link" data-download="store" hidden>Microsoft Store’da görüntüle <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></article>
+                    <article class="download-card"><div class="platform-heading"><svg class="platform-icon linux-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="4" width="28" height="24" rx="4"/><path d="m8 11 5 5-5 5m9 0h7"/></svg><h3>Linux</h3><span>x64</span></div><p>Ubuntu, Debian ve Fedora</p><a class="button button-primary download-link" data-download="linux" hidden>Linux için indir <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><p class="download-pending" data-pending="linux">İndirme bağlantısı yakında</p><span class="package-note">DEB, RPM ve taşınabilir arşiv</span></article>
+                </div>
+            </div>
+        </section>
+        <section class="section container faq-section" id="sorular" aria-labelledby="faq-title">
+            <div><p class="eyebrow">KISA YANITLAR</p><h2 id="faq-title">Merak ettikleriniz.</h2></div>
+            <div class="faq-list">
+                <details><summary>MQTT Workbench kimler için?<span class="faq-plus" aria-hidden="true"></span></summary><p>IoT geliştiricileri, gömülü yazılım ekipleri ve MQTT tabanlı sistemleri test eden herkes için. Broker trafiğini anlamak, cihaz mesajlarını denemek ve tekrar edilebilir test akışları oluşturmak için kullanabilirsiniz.</p></details>
+                <details><summary>Hangi MQTT sürümleri destekleniyor?<span class="faq-plus" aria-hidden="true"></span></summary><p>MQTT 3.1.1 ve MQTT 5.0 desteklenir. TCP, TLS, WebSocket ve güvenli WebSocket bağlantıları; QoS 0, 1, 2 ve retained mesajlar ile çalışabilirsiniz.</p></details>
+                <details><summary>Uygulamanın içinde bir MQTT broker var mı?<span class="faq-plus" aria-hidden="true"></span></summary><p>MQTT Workbench bir masaüstü istemcisidir. Mesaj alıp göndermek için kendi yerel broker’ınıza veya erişiminiz olan bir MQTT sunucusuna bağlanmanız gerekir. Ayrı bir .NET kurulumu gerektirmeyen paketler sunulur.</p></details>
+                <details><summary>Topic ağacı bütün broker topic’lerini gösterir mi?<span class="faq-plus" aria-hidden="true"></span></summary><p>Topic ağacı, abone olduğunuz akışlarda alınan mesajlardan oluşur. Broker üzerindeki tüm topic’leri listelediği varsayılmaz. Bir topic’i seçerek monitor görünümünü filtreleyebilirsiniz.</p></details>
+                <details><summary>Bağlantılarımı ve çalışma düzenimi saklayabilir miyim?<span class="faq-plus" aria-hidden="true"></span></summary><p>Evet. Broker profillerinizi ve çalışma alanlarınızı kaydedebilirsiniz. Sekmeler, abonelikler, filtreler ve yayın taslakları geri yüklenebilir. Güvenli bir başlangıç için bağlantılar kapalı durumda açılır; otomatik yayın başlatılmaz.</p></details>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="#top" aria-label="Sayfa başına dön"><img src="assets/logo.png" alt="MQTT Workbench" width="180" height="56" loading="lazy"></a><p>MQTT geliştirme için odaklanmış bir çalışma alanı.</p><a href="#top">Başa dön <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div><div class="container footer-bottom"><span>MQTT Workbench. Tüm hakları saklıdır.</span><span>Windows ve Microsoft, Microsoft şirketler grubunun ticari markalarıdır.</span></div></footer>
+</body>
+</html>

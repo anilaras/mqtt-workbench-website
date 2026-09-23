@@ -1,0 +1,16 @@
+# Only the public website files belong in this repository.
+*
+!/.gitignore
+!/.nojekyll
+!/README.md
+!/index.html
+!/styles.css
+!/app.js
+!/site-config.js
+!/assets/
+!/assets/logo.png
+!/assets/icon.png
+!/assets/monitor.png
+!/assets/publish.png
+!/assets/capture.png
+!/assets/simulator.png
