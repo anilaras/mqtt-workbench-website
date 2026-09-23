@@ -7,6 +7,14 @@ Website: https://anilaras.com.tr/mqtt-workbench-website/
 This repository contains only the static marketing website and its visual assets.
 The desktop application's source code and development records are not included.
 
+## Download for Windows
+
+[Download MQTT Workbench 0.1.4 for Windows x64](https://github.com/anilaras/mqtt-workbench-website/releases/download/v0.1.4/MQTT-Workbench-0.1.4-win-x64-setup.exe)
+
+Windows 10 / 11, x64. A separate .NET runtime is not required.
+The installer is currently unsigned. Its SHA-256 checksum is available on the
+[release page](https://github.com/anilaras/mqtt-workbench-website/releases/tag/v0.1.4).
+
 ## Preview
 
 Open index.html in a browser, or run:
