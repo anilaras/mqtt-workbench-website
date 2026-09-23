@@ -2,7 +2,7 @@
 
 Turkish product website for MQTT Workbench, a Windows and Linux MQTT developer desktop application.
 
-Website: https://anilaras.github.io/mqtt-workbench-website/
+Website: https://anilaras.com.tr/mqtt-workbench-website/
 
 This repository contains only the static marketing website and its visual assets.
 The desktop application's source code and development records are not included.
